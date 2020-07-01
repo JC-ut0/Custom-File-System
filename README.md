@@ -4,16 +4,16 @@
 
 PS: There are some helper functions in `helper.h` and `helper.c` because `mkfs.c `and a1fs.c both use them.
 
-Basic Information:
--All file/directory are empty when created.(i.e. size 0)
--All file/directory do not have direct pointer: if a file/directory is not empty, it can have up to one indirect extent
--The indirect extent is stored as "extents" inside inode, its length is fixed to be 1. containing up to 512 direct extents
--The data are consistent: All data blocks of a file/directory except the last data block, is filled with data.
--The first inode in inode table is preserved for error handle. The second inode is inode of root.
--No valid dentry has inode number 0.
--Inode.blocks count all blocks used by this inode(including indirect block).
--Block bitmap start from superblock, so first few blocks should be set already when formatting.
--The file system at least need 4 blocks to be initialized
+# Basic Information:
+- All file/directory are empty when created.(i.e. size 0)
+- All file/directory do not have direct pointer: if a file/directory is not empty, it can have up to one indirect extent
+- The indirect extent is stored as "extents" inside inode, its length is fixed to be 1. containing up to 512 direct extents
+- The data are consistent: All data blocks of a file/directory except the last data block, is filled with data.
+- The first inode in inode table is preserved for error handle. The second inode is inode of root.
+- No valid dentry has inode number 0.
+- Inode.blocks count all blocks used by this inode(including indirect block).
+- Block bitmap start from superblock, so first few blocks should be set already when formatting.
+- The file system at least need 4 blocks to be initialized
 
 # Mount the File System:
 ```bash
