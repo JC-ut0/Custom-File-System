@@ -15,19 +15,19 @@ Basic Information:
 -Block bitmap start from superblock, so first few blocks should be set already when formatting.
 -The file system at least need 4 blocks to be initialized
 
-Mount the File System:
+# Mount the File System:
 ```
     make
     truncate -s <size> <img>
     ./mkfs.a1fs -i <num_ino> <img>
 ```
 
-Run without gdb:
+# Run without gdb:
 `   ./a1fs <img> <mount point>  `
 with gdb:
 `   gdb --args ./a1fs <img> <mount point>  `
 
-Basic Operations:
+# Basic Operations:
 ```
     mkdir  <dir>
     touch  <file>
