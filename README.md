@@ -36,9 +36,9 @@ with gdb:
     rm  -r  <dir>
     rmdir <dir>
     cat   <file>
-    cat   <file>     >      <file>
-    cat   <file>     >>     <file>
-    echo  <text>     >      <file>
-    echo  <text>     >>     <file>
+    cat   <file>  >  <file>
+    cat   <file>  >>  <file>
+    echo  <text>  >   <file>
+    echo  <text> >>   <file>
     truncate  -s  <size>  <file>
 ```
