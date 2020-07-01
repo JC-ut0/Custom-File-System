@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://q.utoronto.ca/courses/154590/assignments/349729 -->
+<html class="" dir="ltr" lang="en-CA"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Assignment 1b_ File System Implementation_files/css" rel="stylesheet">
+  <link href="./Assignment 1b_ File System Implementation_files/css2" rel="stylesheet">
+  <link href="./Assignment 1b_ File System Implementation_files/css2(1)" rel="stylesheet">
+    <script async="" src="./Assignment 1b_ File System Implementation_files/analytics.js.download"></script><script async="" src="./Assignment 1b_ File System Implementation_files/analytics.js.download"></script><script>if (navigator.userAgent.match(/(MSIE|Trident\/)/)) location.replace('/ie-is-not-supported.html')</script>
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/favicon-e10d657a73.ico">
+  <link rel="apple-touch-icon" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/apple-touch-icon-585e5d997d.png">
+  <link rel="stylesheet" media="all" href="./Assignment 1b_ File System Implementation_files/variables-8391c84da435c9cfceea2b2b3317ff66.css">
+  <link rel="stylesheet" media="all" href="./Assignment 1b_ File System Implementation_files/common-c31b626bce.css">
+  <meta name="apple-itunes-app" content="app-id=480883488">
+<link rel="manifest" href="https://q.utoronto.ca/web-app-manifest/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#002a5c">
+  <link rel="stylesheet" media="all" href="./Assignment 1b_ File System Implementation_files/assignments-f5bc12342d.css">
+<link rel="stylesheet" media="all" href="./Assignment 1b_ File System Implementation_files/learning_outcomes-cbba6e8c1e.css">
+<link rel="stylesheet" media="all" href="./Assignment 1b_ File System Implementation_files/new_user_tutorials-2e3774c277.css">
+  <link rel="stylesheet" media="all" href="./Assignment 1b_ File System Implementation_files/uoft-new.css">
+  <script>
+    function _earlyClick(e){
+      var c = e.target
+      while (c && c.ownerDocument) {
+        if (c.getAttribute('href') == '#' || c.getAttribute('data-method')) {
+          e.preventDefault()
+          (_earlyClick.clicks = _earlyClick.clicks || []).push(c)
+          break
+        }
+        c = c.parentNode
+      }
+    }
+    document.addEventListener('click', _earlyClick)
+  </script>
+
+
+  <script>
+    INST = {"environment":"production","allowMediaComments":true,"kalturaSettings":{"domain":"yul.nv.instructuremedia.com","resource_domain":"yul.nv.instructuremedia.com","rtmp_domain":"yul.rtmp.instructuremedia.com","partner_id":7,"subpartner_id":0,"player_ui_conf":0,"kcw_ui_conf":0,"upload_ui_conf":0,"max_file_size_bytes":534773760,"js_uploader":"yes"},"disableGooglePreviews":true,"logPageViews":true,"maxVisibleEditorButtons":3,"editorButtons":[{"name":"YouTube","id":50,"url":"https://www.edu-apps.org/lti_public_resources/?tool_id=youtube","icon_url":"https://www.edu-apps.org/assets/lti_public_resources/youtube_icon.png","canvas_icon_class":null,"width":560,"height":600,"use_tray":false,"description":"\u003cp\u003eSearch publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.\u003c/p\u003e\n"}]};
+    ENV = {"ASSET_HOST":"https://du11hjcvx0uqb.cloudfront.net/br","active_brand_config_json_url":"https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/c7cf4ed6252b5fd4251eb53001be1b45/variables-8391c84da435c9cfceea2b2b3317ff66.json","url_to_what_gets_loaded_inside_the_tinymce_editor_css":["https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/c7cf4ed6252b5fd4251eb53001be1b45/variables-8391c84da435c9cfceea2b2b3317ff66.css","https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-f844e1e4c7.css"],"url_for_high_contrast_tinymce_editor_css":["https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/default/variables-high_contrast-8391c84da435c9cfceea2b2b3317ff66.css","https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_high_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-db21d6ee5f.css"],"current_user_id":"28861","current_user_roles":["user","student"],"current_user_types":[],"current_user_disabled_inbox":false,"files_domain":"cluster75.canvas-user-content.com","DOMAIN_ROOT_ACCOUNT_ID":"118340000000000001","k12":false,"use_responsive_layout":true,"use_rce_enhancements":false,"rce_auto_save":true,"help_link_name":"Help","help_link_icon":"help","use_high_contrast":false,"disable_celebrations":false,"LTI_LAUNCH_FRAME_ALLOWANCES":["geolocation *","microphone *","camera *","midi *","encrypted-media *","autoplay *"],"DEEP_LINKING_POST_MESSAGE_ORIGIN":"https://q.utoronto.ca","DEEP_LINKING_LOGGING":null,"SETTINGS":{"open_registration":false,"collapse_global_nav":false,"show_feedback_link":true,"filter_speed_grader_by_student_group":false},"DIRECT_SHARE_ENABLED":false,"FEATURES":{"cc_in_rce_video_tray":false,"featured_help_links":true,"assignment_bulk_edit":true,"responsive_admin_settings":false,"responsive_awareness":false,"responsive_misc":false,"product_tours":false,"module_dnd":false,"files_dnd":true,"unpublished_courses":false,"canvas_k6_theme":false},"current_user":{"id":"28861","display_name":"Yexiong Xu","avatar_image_url":"https://q.utoronto.ca/images/messages/avatar-50.png","html_url":"https://q.utoronto.ca/about/28861","pronouns":null,"avatar_is_fallback":true},"page_view_update_url":"/page_views/0d1a8beb-6ebc-4321-9257-68be66b523f6?page_view_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpIjoiMGQxYThiZWItNmViYy00MzIxLTkyNTctNjhiZTY2YjUyM2Y2IiwidSI6MTE4MzQwMDAwMDAwMDI4ODYxLCJjIjoiMjAyMC0wNy0wMVQxMjozMTozMS44OVoifQ.EyhXYMCZY2rPBRBTGJDsQa5U-cX8QtkycNiPAo-mqb0","context_asset_string":"course_154590","ping_url":"https://q.utoronto.ca/api/v1/courses/154590/ping","TIMEZONE":"America/New_York","CONTEXT_TIMEZONE":"America/New_York","LOCALE":"en-CA","BIGEASY_LOCALE":"en_CA","FULLCALENDAR_LOCALE":"en-ca","MOMENT_LOCALE":"en-ca","rce_auto_save_max_age_ms":86400000,"COURSE_ID":"154590","RICH_CONTENT_APP_HOST":"rich-content-yul.inscloudgate.net","RICH_CONTENT_SKIP_SIDEBAR":null,"JWT":"ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJSME5OSW4wLi5pU3BGaEpsSHYwRDhCZmhfLnZXa3hJNmxFMmFheU9FSGtwZ1FMWnpiQk1QU2JtcEFDNnBXbTVKMG91Zkl5cnhzMWFHRUtyQW5ya0VXNmhWWEhKRWVGamtEdV95alJvdV9SanNoS2NOMndaTmpDNWt3UVZqUkNyN1ZGOHZJUGJIZG1QalU3Y0NWZ25RbmpLazdvSWJhR01WUGpKSjRIbEZqWVhseVVrS1h1MHNFdmNsNmN4Q2czT3lyZ2xKWHh6bGRSNzlDcm9YaENIR0JsOWs4VVJfeS1Zdk40c3QxWm1nbDJyU0RYSzF4ZUxfLU0zMnM2M05COEF3UjQ4dzhveFBTTnpCZjloWExPTnR3RUVkUHkxUDBrYjlRMFpacHdVd01MeXQ1aWx0aGd3WDNqVFBlN29USjBUa2Q4UVdlX0JaemRVM1hHRUVid3JuNEg3OGRGQXRONlYyeTZOeGRlV3pXZF9naUpUU2xBTWZ0TUxjUUozLVBEWmVOYnJENm5nZUVvMVgxclM2b3BTVUh6YWtXTHRQc2lXb2RMSmJHa1FpOWhReXc4NlJrTUd1akFZOWt5T2xNV0VZS1FsT05sckJfUzBRRnc5RWU2Y0xfcm9vRjVmYXdrbXVGcmlncDhKWEd0OFllMkQwVEdlMVBvMlZEQkhGMHFiN01ianlBUW9ON2plOUdWeEFYSHZOMnNMZ2dUQTJXODlJaTFXckxhZmQwNmRoV2RsRE1tajFmYUV5U1g1U3Nvdk5RWVR4ejVpUENxQ3p3b2pTQkY2NWdZTFF3SG41cDFIOXk1MTBZXzJZUWZZSWdZZFNoNVJiMldEWC1GUU8tY1R3U0h5QU1lMjBITWdKR2lxWXNlQWxfTGpRNU93bzM5ZDM1ZWNBcjRLT21xSDBVSTJ5TTRxTk1BYzNScERTcXFFZEV6RWVJWkF4NjZleXdWRTcyWFdhSnZHNjQ1RDFHTlZCSTFVNmZGZkNnZDhQV2pYTFNXaGQ3Y2s2NWtkZVFvMDJXLUNvZWV0ci1ENjFxZldZb2hpQ2dCU0VsdWVUU3lucVRuLW9xUDVUNGtsR25kWjBBQm5uNzJENFdOLjZFMzZRYzBKSmZhYncxQkNjVDN4U1E=","RICH_CONTENT_CAN_UPLOAD_FILES":false,"RICH_CONTENT_FILES_TAB_DISABLED":false,"ASSIGNMENT_ID":"349729","PREREQS":{},"EULA_URL":null,"EXTERNAL_TOOLS":[],"PERMISSIONS":{"context":{"read_as_admin":false,"manage_assignments":false},"assignment":{"update":false,"submit":false}},"ROOT_OUTCOME_GROUP":{"id":"28078","title":"CSC369H1 Y LEC5101 20205:Operating Systems","vendor_guid":null,"url":"/api/v1/courses/154590/outcome_groups/28078","subgroups_url":"/api/v1/courses/154590/outcome_groups/28078/subgroups","outcomes_url":"/api/v1/courses/154590/outcome_groups/28078/outcomes","can_edit":false,"import_url":"/api/v1/courses/154590/outcome_groups/28078/import","context_id":"154590","context_type":"Course","description":null},"SIMILARITY_PLEDGE":null,"CONFETTI_ENABLED":false,"badge_counts":{"submissions":0},"notices":[],"active_context_tab":"assignments"};
+  </script>
+
+  <link rel="preload" href="./Assignment 1b_ File System Implementation_files/variables-8391c84da435c9cfceea2b2b3317ff66.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/New_York-c3226761e3.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/New_York-c3226761e3.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/en_CA-21c9309bc0.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/en-ca-c-76e911b253.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/main-e-e1c52f7c25.js.download" as="script" type="text/javascript"><script>
+//<![CDATA[
+
+      ;["https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/c7cf4ed6252b5fd4251eb53001be1b45/variables-8391c84da435c9cfceea2b2b3317ff66.js", "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/New_York-c3226761e3.js", "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/New_York-c3226761e3.js", "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/en_CA-21c9309bc0.js", "https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/moment/locale/en-ca-c-76e911b253.js", "https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/main-e-e1c52f7c25.js"].forEach(function(src) {
+        var s = document.createElement('script')
+        s.src = src
+        s.async = false
+        document.head.appendChild(s)
+      });
+//]]>
+</script><script src="./Assignment 1b_ File System Implementation_files/variables-8391c84da435c9cfceea2b2b3317ff66.js.download"></script><script src="./Assignment 1b_ File System Implementation_files/New_York-c3226761e3.js.download"></script><script src="./Assignment 1b_ File System Implementation_files/New_York-c3226761e3.js.download"></script><script src="./Assignment 1b_ File System Implementation_files/en_CA-21c9309bc0.js.download"></script><script src="./Assignment 1b_ File System Implementation_files/en-ca-c-76e911b253.js.download"></script><script src="./Assignment 1b_ File System Implementation_files/main-e-e1c52f7c25.js.download"></script><link rel="preload" href="./Assignment 1b_ File System Implementation_files/0-c-07585b02de.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/1-c-02385c16a3.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/2-c-abb95a844f.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/4-c-78d28c71dd.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/5-c-466422f992.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/6-c-d090ffc721.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/7-c-d212b280c5.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/15-c-2b177671ca.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/16-c-241dfd2d24.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/18-c-0935f14580.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/20-c-d57bb12e3c.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/26-c-e3644aae6c.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/31-c-dc49fbc718.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/32-c-ed1d8c6835.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/33-c-e10d57b2e3.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/35-c-d580006021.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/43-c-b61e5130c0.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/46-c-1c66590064.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/45-c-8e4bf680b4.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/65-c-ecf8633720.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/92-c-ae4abf3cd6.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/103-c-5cd5bf913e.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/assignment_show-c-9c025bbb4c.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/3-c-7c58dd3fb8.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/8-c-f7e86adb50.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/9-c-e192d8c019.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/11-c-2a01a3ba8a.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/12-c-5c318a4e4c.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/17-c-b85fe6a33a.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/24-c-cc8fb65697.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/27-c-4d741cd7b3.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/49-c-4c9a06cc12.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/51-c-67c42c25f9.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/58-c-f97b338487.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/63-c-0f82838a18.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/69-c-40517a8368.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/74-c-73c641e994.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/76-c-fb23835811.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/105-c-0bb7e3330a.js.download" as="script" type="text/javascript"><link rel="preload" href="./Assignment 1b_ File System Implementation_files/edit_rubric-c-46b3dcc22b.js.download" as="script" type="text/javascript"><script>
+//<![CDATA[
+(window.bundles || (window.bundles = [])).push('assignment_show');
+(window.bundles || (window.bundles = [])).push('edit_rubric');
+(window.bundles || (window.bundles = [])).push('navigation_header');
+//]]>
+</script>
+  <title>Assignment 1b: File System Implementation</title>
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', "UA-9138420-1", 'auto');
+      ga('set', 'userId', "073e614f4326bf74764f23bc6611fe2b");
+    ga('set', 'dimension1', "100");
+    ga('set', 'dimension2', "00");
+    ga('set', 'dimension3', "0");
+    ga('set', 'dimension4', "Higher Ed");
+    ga('send', 'pageview');
+    (window.requestIdleCallback || window.setTimeout)(function(){
+      var s=document.createElement('script'), m=document.getElementsByTagName('script')[0]
+      s.async=1; s.src='https://www.google-analytics.com/analytics.js'
+      m.parentNode.insertBefore(s,m)
+    });
+  </script>
+
+
+<style type="text/css"></style><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/0-c-07585b02de.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/1-c-02385c16a3.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/2-c-abb95a844f.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/4-c-78d28c71dd.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/5-c-466422f992.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/6-c-d090ffc721.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/7-c-d212b280c5.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/15-c-2b177671ca.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/16-c-241dfd2d24.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/18-c-0935f14580.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/20-c-d57bb12e3c.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/26-c-e3644aae6c.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/31-c-dc49fbc718.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/32-c-ed1d8c6835.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/33-c-e10d57b2e3.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/35-c-d580006021.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/43-c-b61e5130c0.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/46-c-1c66590064.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/45-c-8e4bf680b4.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/65-c-ecf8633720.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/92-c-ae4abf3cd6.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/103-c-5cd5bf913e.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/assignment_show-c-9c025bbb4c.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/3-c-7c58dd3fb8.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/8-c-f7e86adb50.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/9-c-e192d8c019.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/11-c-2a01a3ba8a.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/12-c-5c318a4e4c.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/17-c-b85fe6a33a.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/24-c-cc8fb65697.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/27-c-4d741cd7b3.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/49-c-4c9a06cc12.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/51-c-67c42c25f9.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/58-c-f97b338487.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/63-c-0f82838a18.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/69-c-40517a8368.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/74-c-73c641e994.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/76-c-fb23835811.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/105-c-0bb7e3330a.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/edit_rubric-c-46b3dcc22b.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/731-c-277b507fad.js.download"></script><script src="./Assignment 1b_ File System Implementation_files/UT_Custom.js.download"></script><style type="text/css" data-glamor=""></style><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/52-c-1c6ac76cbd.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/676-c-77752d5405.js.download"></script><link rel="stylesheet" href="./Assignment 1b_ File System Implementation_files/PaginatedView-bf30c3a7d1.css" data-loaded-by-brandablecss="true"><link rel="stylesheet" href="./Assignment 1b_ File System Implementation_files/KeyboardShortcuts-f4493af988.css" data-loaded-by-brandablecss="true"><link rel="stylesheet" href="./Assignment 1b_ File System Implementation_files/TreeBrowser-486bca8feb.css" data-loaded-by-brandablecss="true"><link rel="stylesheet" href="./Assignment 1b_ File System Implementation_files/MoveOutcomeDialog-9d1c3f4686.css" data-loaded-by-brandablecss="true"><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/21-c-4087b0a86e.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/28-c-3e854c1b70.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/38-c-2ad8946981.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/75-c-50e95acfa3.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/86-c-67f21801fc.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/644-c-88f4b6779a.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/10-c-6f5c4da71b.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/19-c-0d53a4e9ce.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/22-c-90810b1eaa.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/37-c-2561b3f958.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/55-c-a514b96d85.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/68-c-6eafa91f92.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/79-c-6b5394d4a3.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/78-c-15ad54b349.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/107-c-986ae4a0c2.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/118-c-2776714678.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/129-c-d20b5c4308.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/130-c-674c335e70.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/141-c-ef08276ac8.js.download"></script><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/canvas-rce-old-async-chunk-c-eb9a0d7fac.js.download"></script><style type="text/css">.mejs-offscreen{clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:polygon(0px 0,0 0,0 0,0 0);position:absolute!important;height:1px;width:1px;overflow:hidden}.mejs-container{position:relative;background:#000;font-family:Helvetica,Arial,serif;text-align:left;vertical-align:top;text-indent:0}.mejs-fill-container,.mejs-fill-container .mejs-container{width:100%;height:100%}.mejs-fill-container{overflow:hidden}.mejs-container:focus{outline:0}.me-plugin{position:absolute}.mejs-embed,.mejs-embed body{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hidden}.mejs-fullscreen{overflow:hidden!important}.mejs-container-fullscreen{position:fixed;left:0;top:0;right:0;bottom:0;overflow:hidden;z-index:1000}.mejs-container-fullscreen .mejs-mediaelement,.mejs-container-fullscreen video{width:100%;height:100%}.mejs-clear{clear:both}.mejs-background{position:absolute;top:0;left:0}.mejs-mediaelement{position:absolute;top:0;left:0;width:100%;height:100%}.mejs-poster{position:absolute;top:0;left:0;background-size:contain;background-position:50% 50%;background-repeat:no-repeat}:root .mejs-poster img{display:none}.mejs-poster img{border:0;padding:0}.mejs-overlay{position:absolute;top:0;left:0}.mejs-overlay-play{cursor:pointer}.mejs-overlay-button{position:absolute;top:50%;left:50%;width:100px;height:100px;margin:-50px 0 0 -50px;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/746c3af7a145a09239a36e5ef61cfea0.svg) no-repeat}.no-svg .mejs-overlay-button{background-image:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/716436fb3df0d29e6b37dd62d952676a.png)}.mejs-overlay:hover .mejs-overlay-button{background-position:0 -100px}.mejs-overlay-loading{position:absolute;top:50%;left:50%;width:80px;height:80px;margin:-40px 0 0 -40px;background:#333;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(0,0,0,.9);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(50,50,50,.9)),to(rgba(0,0,0,.9)));background:-webkit-linear-gradient(top,rgba(50,50,50,.9),rgba(0,0,0,.9));background:-moz-linear-gradient(top,rgba(50,50,50,.9),rgba(0,0,0,.9));background:-o-linear-gradient(top,rgba(50,50,50,.9),rgba(0,0,0,.9));background:-ms-linear-gradient(top,rgba(50,50,50,.9),rgba(0,0,0,.9));background:linear-gradient(rgba(50,50,50,.9),rgba(0,0,0,.9))}.mejs-overlay-loading span{display:block;width:80px;height:80px;background:transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/76b326f4d44222126fee21076595bef5.gif) 50% 50% no-repeat}.mejs-container .mejs-controls{position:absolute;list-style-type:none;margin:0;padding:0;bottom:0;left:0;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(0,0,0,.7);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(50,50,50,.7)),to(rgba(0,0,0,.7)));background:-webkit-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:-moz-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:-o-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:-ms-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:linear-gradient(rgba(50,50,50,.7),rgba(0,0,0,.7));height:30px;width:100%}.mejs-container .mejs-controls div{list-style-type:none;background-image:none;display:block;float:left;margin:0;padding:0;width:26px;height:26px;font-size:11px;line-height:11px;font-family:Helvetica,Arial,serif;border:0}.mejs-controls .mejs-button button{cursor:pointer;display:block;font-size:0;line-height:0;text-decoration:none;margin:7px 5px;padding:0;position:absolute;height:16px;width:16px;border:0;background:transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/40f56f5a736da4effeb790cedb8a52f0.svg) no-repeat}.no-svg .mejs-controls .mejs-button button{background-image:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/24a0227fbdd3acfd86ff03fc3fc6c8a4.png)}.mejs-controls .mejs-button button:focus{outline:dotted 1px #999}.mejs-container .mejs-controls .mejs-time{color:#fff;display:block;height:17px;width:auto;padding:10px 3px 0;overflow:hidden;text-align:center;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}.mejs-container .mejs-controls .mejs-time a{color:#fff;font-size:11px;line-height:12px;display:block;float:left;margin:1px 2px 0 0;width:auto}.mejs-controls .mejs-play button{background-position:0 0}.mejs-controls .mejs-pause button{background-position:0 -16px}.mejs-controls .mejs-stop button{background-position:-112px 0}.mejs-controls div.mejs-time-rail{direction:ltr;width:200px;padding-top:5px}.mejs-controls .mejs-time-rail span,.mejs-controls .mejs-time-rail a{display:block;position:absolute;width:180px;height:10px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;cursor:pointer}.mejs-controls .mejs-time-rail .mejs-time-total{margin:5px;background:#333;background:rgba(50,50,50,.8);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(30,30,30,.8)),to(rgba(60,60,60,.8)));background:-webkit-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:-moz-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:-o-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:-ms-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:linear-gradient(rgba(30,30,30,.8),rgba(60,60,60,.8))}.mejs-controls .mejs-time-rail .mejs-time-buffering{width:100%;background-image:-o-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:-webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.15)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.15)),color-stop(0.75,rgba(255,255,255,.15)),color-stop(0.75,transparent),to(transparent));background-image:-webkit-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:-moz-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:-ms-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);-webkit-background-size:15px 15px;-moz-background-size:15px 15px;-o-background-size:15px 15px;background-size:15px 15px;-webkit-animation:buffering-stripes 2s linear infinite;-moz-animation:buffering-stripes 2s linear infinite;-ms-animation:buffering-stripes 2s linear infinite;-o-animation:buffering-stripes 2s linear infinite;animation:buffering-stripes 2s linear infinite}@-webkit-keyframes buffering-stripes{from{background-position:0 0}to{background-position:30px 0}}@-moz-keyframes buffering-stripes{from{background-position:0 0}to{background-position:30px 0}}@-ms-keyframes buffering-stripes{from{background-position:0 0}to{background-position:30px 0}}@-o-keyframes buffering-stripes{from{background-position:0 0}to{background-position:30px 0}}@keyframes buffering-stripes{from{background-position:0 0}to{background-position:30px 0}}.mejs-controls .mejs-time-rail .mejs-time-loaded{background:#3caac8;background:rgba(60,170,200,.8);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(44,124,145,.8)),to(rgba(78,183,212,.8)));background:-webkit-linear-gradient(top,rgba(44,124,145,.8),rgba(78,183,212,.8));background:-moz-linear-gradient(top,rgba(44,124,145,.8),rgba(78,183,212,.8));background:-o-linear-gradient(top,rgba(44,124,145,.8),rgba(78,183,212,.8));background:-ms-linear-gradient(top,rgba(44,124,145,.8),rgba(78,183,212,.8));background:linear-gradient(rgba(44,124,145,.8),rgba(78,183,212,.8));width:0}.mejs-controls .mejs-time-rail .mejs-time-current{background:#fff;background:rgba(255,255,255,.8);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.9)),to(rgba(200,200,200,.8)));background:-webkit-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:-moz-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:-o-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:-ms-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:linear-gradient(rgba(255,255,255,.9),rgba(200,200,200,.8));width:0}.mejs-controls .mejs-time-rail .mejs-time-handle{display:none;position:absolute;margin:0;width:10px;background:#fff;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;cursor:pointer;border:solid 2px #333;top:-2px;text-align:center}.mejs-controls .mejs-time-rail .mejs-time-float{position:absolute;display:none;background:#eee;width:36px;height:17px;border:solid 1px #333;top:-26px;margin-left:-18px;text-align:center;color:#111}.mejs-controls .mejs-time-rail .mejs-time-float-current{margin:2px;width:30px;display:block;text-align:center;left:0}.mejs-controls .mejs-time-rail .mejs-time-float-corner{position:absolute;display:block;width:0;height:0;line-height:0;border:solid 5px #eee;border-color:#eee transparent transparent;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;top:15px;left:13px}.mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float{width:48px}.mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float-current{width:44px}.mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float-corner{left:18px}.mejs-controls .mejs-fullscreen-button button{background-position:-32px 0}.mejs-controls .mejs-unfullscreen button{background-position:-32px -16px}.mejs-controls .mejs-volume-button{}.mejs-controls .mejs-mute button{background-position:-16px -16px}.mejs-controls .mejs-unmute button{background-position:-16px 0}.mejs-controls .mejs-volume-button{position:relative}.mejs-controls .mejs-volume-button .mejs-volume-slider{height:115px;width:25px;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(50,50,50,.7);-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;top:-115px;left:0;z-index:1;position:absolute;margin:0}.mejs-controls .mejs-volume-button:hover{-webkit-border-radius:0 0 4px 4px;-moz-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px}.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-total{position:absolute;left:11px;top:8px;width:2px;height:100px;background:#ddd;background:rgba(255,255,255,.5);margin:0}.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-current{position:absolute;left:11px;top:8px;width:2px;height:100px;background:#ddd;background:rgba(255,255,255,.9);margin:0}.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-handle{position:absolute;left:4px;top:-3px;width:16px;height:6px;background:#ddd;background:rgba(255,255,255,.9);cursor:N-resize;-webkit-border-radius:1px;-moz-border-radius:1px;border-radius:1px;margin:0}.mejs-controls a.mejs-horizontal-volume-slider{height:26px;width:56px;position:relative;display:block;float:left;vertical-align:middle}.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total{position:absolute;left:0;top:11px;width:50px;height:8px;margin:0;padding:0;font-size:1px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;background:#333;background:rgba(50,50,50,.8);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(30,30,30,.8)),to(rgba(60,60,60,.8)));background:-webkit-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:-moz-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:-o-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:-ms-linear-gradient(top,rgba(30,30,30,.8),rgba(60,60,60,.8));background:linear-gradient(rgba(30,30,30,.8),rgba(60,60,60,.8))}.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current{position:absolute;left:0;top:11px;width:50px;height:8px;margin:0;padding:0;font-size:1px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;background:#fff;background:rgba(255,255,255,.8);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.9)),to(rgba(200,200,200,.8)));background:-webkit-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:-moz-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:-o-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:-ms-linear-gradient(top,rgba(255,255,255,.9),rgba(200,200,200,.8));background:linear-gradient(rgba(255,255,255,.9),rgba(200,200,200,.8))}.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-handle{display:none}.mejs-controls .mejs-captions-button{position:relative}.mejs-controls .mejs-captions-button button{background-position:-48px 0}.mejs-controls .mejs-captions-button .mejs-captions-selector{position:absolute;bottom:26px;right:-51px;width:85px;height:100px;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(50,50,50,.7);border:solid 1px transparent;padding:10px 10px 0;overflow:hidden;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}.mejs-controls .mejs-captions-button .mejs-captions-selector ul{margin:0;padding:0;display:block;list-style-type:none!important;overflow:hidden}.mejs-controls .mejs-captions-button .mejs-captions-selector ul li{margin:0 0 6px;padding:0;list-style-type:none!important;display:block;color:#fff;overflow:hidden}.mejs-controls .mejs-captions-button .mejs-captions-selector ul li input{clear:both;float:left;margin:3px 3px 0 5px}.mejs-controls .mejs-captions-button .mejs-captions-selector ul li label{width:55px;float:left;padding:4px 0 0;line-height:15px;font-family:Helvetica,Arial,serif;font-size:10px}.mejs-controls .mejs-captions-button .mejs-captions-translations{font-size:10px;margin:0 0 5px}.mejs-chapters{position:absolute;top:0;left:0;border-right:solid 1px #fff;width:10000px;z-index:1}.mejs-chapters .mejs-chapter{position:absolute;float:left;background:#222;background:rgba(0,0,0,.7);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(50,50,50,.7)),to(rgba(0,0,0,.7)));background:-webkit-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:-moz-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:-o-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:-ms-linear-gradient(top,rgba(50,50,50,.7),rgba(0,0,0,.7));background:linear-gradient(rgba(50,50,50,.7),rgba(0,0,0,.7));filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#323232, endColorstr=#000000);overflow:hidden;border:0}.mejs-chapters .mejs-chapter .mejs-chapter-block{font-size:11px;color:#fff;padding:5px;display:block;border-right:solid 1px #333;border-bottom:solid 1px #333;cursor:pointer}.mejs-chapters .mejs-chapter .mejs-chapter-block-last{border-right:0}.mejs-chapters .mejs-chapter .mejs-chapter-block:hover{background:#666;background:rgba(102,102,102,.7);background:-webkit-gradient(linear,0 0,0 100%,from(rgba(102,102,102,.7)),to(rgba(50,50,50,.6)));background:-webkit-linear-gradient(top,rgba(102,102,102,.7),rgba(50,50,50,.6));background:-moz-linear-gradient(top,rgba(102,102,102,.7),rgba(50,50,50,.6));background:-o-linear-gradient(top,rgba(102,102,102,.7),rgba(50,50,50,.6));background:-ms-linear-gradient(top,rgba(102,102,102,.7),rgba(50,50,50,.6));background:linear-gradient(rgba(102,102,102,.7),rgba(50,50,50,.6));filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#666666, endColorstr=#323232)}.mejs-chapters .mejs-chapter .mejs-chapter-block .ch-title{font-size:12px;font-weight:700;display:block;white-space:nowrap;text-overflow:ellipsis;margin:0 0 3px;line-height:12px}.mejs-chapters .mejs-chapter .mejs-chapter-block .ch-timespan{font-size:12px;line-height:12px;margin:3px 0 4px;display:block;white-space:nowrap;text-overflow:ellipsis}.mejs-captions-layer{position:absolute;bottom:0;left:0;text-align:center;line-height:20px;font-size:16px;color:#fff}.mejs-captions-layer a{color:#fff;text-decoration:underline}.mejs-captions-layer[lang=ar]{font-size:20px;font-weight:400}.mejs-captions-position{position:absolute;width:100%;bottom:15px;left:0}.mejs-captions-position-hover{bottom:35px}.mejs-captions-text,.mejs__captions-text *{padding:0;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(20,20,20,.5);white-space:pre-wrap;-webkit-box-shadow:5px 0 0 rgba(20,20,20,.5),-5px 0 0 rgba(20,20,20,.5);box-shadow:5px 0 0 rgba(20,20,20,.5),-5px 0 0 rgba(20,20,20,.5)}.me-cannotplay{}.me-cannotplay a{color:#fff;font-weight:700}.me-cannotplay span{padding:15px;display:block}.mejs-controls .mejs-loop-off button{background-position:-64px -16px}.mejs-controls .mejs-loop-on button{background-position:-64px 0}.mejs-controls .mejs-backlight-off button{background-position:-80px -16px}.mejs-controls .mejs-backlight-on button{background-position:-80px 0}.mejs-controls .mejs-picturecontrols-button{background-position:-96px 0}.mejs-contextmenu{position:absolute;width:150px;padding:10px;border-radius:4px;top:0;left:0;background:#fff;border:solid 1px #999;z-index:1001}.mejs-contextmenu .mejs-contextmenu-separator{height:1px;font-size:0;margin:5px 6px;background:#333}.mejs-contextmenu .mejs-contextmenu-item{font-family:Helvetica,Arial,serif;font-size:12px;padding:4px 6px;cursor:pointer;color:#333}.mejs-contextmenu .mejs-contextmenu-item:hover{background:#2C7C91;color:#fff}.mejs-controls .mejs-sourcechooser-button{position:relative}.mejs-controls .mejs-sourcechooser-button button{background-position:-128px 0}.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector{position:absolute;bottom:26px;right:-10px;width:130px;height:100px;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(50,50,50,.7);border:solid 1px transparent;padding:10px;overflow:hidden;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul{margin:0;padding:0;display:block;list-style-type:none!important;overflow:hidden}.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li{margin:0 0 6px;padding:0;list-style-type:none!important;display:block;color:#fff;overflow:hidden}.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input{clear:both;float:left;margin:3px 3px 0 5px}.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label{width:100px;float:left;padding:4px 0 0;line-height:15px;font-family:Helvetica,Arial,serif;font-size:10px}.mejs-postroll-layer{position:absolute;bottom:0;left:0;width:100%;height:100%;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(50,50,50,.7);z-index:1000;overflow:hidden}.mejs-postroll-layer-content{width:100%;height:100%}.mejs-postroll-close{position:absolute;right:0;top:0;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(50,50,50,.7);color:#fff;padding:4px;z-index:100;cursor:pointer}div.mejs-speed-button{width:46px!important;position:relative}.mejs-controls .mejs-button.mejs-speed-button button{background:transparent;width:36px;font-size:11px;line-height:normal;color:#fff}.mejs-controls .mejs-speed-button .mejs-speed-selector{position:absolute;top:-100px;left:-10px;width:60px;height:100px;background:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);background:rgba(50,50,50,.7);border:solid 1px transparent;padding:0;overflow:hidden;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}.mejs-controls .mejs-speed-button .mejs-speed-selector ul li label.mejs-speed-selected{color:rgba(33,248,248,1)}.mejs-controls .mejs-speed-button .mejs-speed-selector ul{margin:0;padding:0;display:block;list-style-type:none!important;overflow:hidden}.mejs-controls .mejs-speed-button .mejs-speed-selector ul li{margin:0 0 6px;padding:0 10px;list-style-type:none!important;display:block;color:#fff;overflow:hidden}.mejs-controls .mejs-speed-button .mejs-speed-selector ul li input{clear:both;float:left;margin:3px 3px 0 5px}.mejs-controls .mejs-speed-button .mejs-speed-selector ul li label{width:60px;float:left;padding:4px 0 0;line-height:15px;font-family:Helvetica,Arial,serif;font-size:11px;color:#fff;margin-left:5px;cursor:pointer}.mejs-controls .mejs-speed-button .mejs-speed-selector ul li:hover{background-color:#c8c8c8!important;background-color:rgba(255,255,255,.4)!important}.mejs-controls .mejs-button.mejs-jump-forward-button{background:transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/15e1ac8cbacc2efdf1ac2677de48a253.png) no-repeat 3px 3px}.mejs-controls .mejs-button.mejs-jump-forward-button button{background:transparent;font-size:9px;line-height:normal;color:#fff}.mejs-controls .mejs-button.mejs-skip-back-button{background:transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/cd6dc830eb45b3a5a96bbc936ff54846.png) no-repeat 3px 3px}.mejs-controls .mejs-button.mejs-skip-back-button button{background:transparent;font-size:9px;line-height:normal;color:#fff}</style><style type="text/css">/*
+ * Copyright (C) 2014 - present Instructure, Inc.
+ *
+ * This file is part of Canvas.
+ *
+ * Canvas is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License as published by the Free
+ * Software Foundation, version 3 of the License.
+ *
+ * Canvas is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* customizations to mediaelementplayer css */
+
+/*
+  Because this file is not proccessed by our brandable_css sass pipeline,
+  it cannot use our sass-direction helpers. So we have to handle RTL manually
+  by putting direction-specific styles in [dir="ltr"] or [dir="rtl"] blocks.
+*/
+/* stylelint-disable property-blacklist, declaration-property-value-blacklist */
+
+/* good menu widths */
+.mejs-sourcechooser-selector {
+  width: 160px;
+}
+.mejs-sourcechooser-selector label {
+  width: 160px !important;
+}
+
+.mejs-captions-selector {
+  width: 105px;
+}
+[dir="ltr"]  .mejs-captions-selector { text-align: left }
+[dir="rtl"]  .mejs-captions-selector { text-align: right }
+
+.mejs-captions-selector label {
+  width: 70px !important;
+}
+
+/* Subtitile upload link */
+.mejs-captions-selector .upload-track {
+  color: white;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+[dir="ltr"] .mejs-captions-selector .upload-track {
+  margin-right: 0px;
+  margin-left: 5px;
+  float: left;
+}
+[dir="rtl"] .mejs-captions-selector .upload-track {
+  margin-left: 0px;
+  margin-right: 5px;
+  float: right;
+}
+
+/* "x" button to remove a subtitle */
+.mejs-captions-selector a[data-remove] {
+  position: absolute;
+  top: 0;
+  color: white;
+}
+[dir="ltr"] .mejs-captions-selector a[data-remove] { right: 0 }
+[dir="rtl"] .mejs-captions-selector a[data-remove] { left: 0 }
+
+
+/* style menu items without a radio button */
+.mejs-button [role="menu"] {
+  padding: 0 !important;
+}
+ /* compensate for above 0 padding */
+ .mejs-button [role="menu"] ul li {
+  position: relative;
+  padding: 0 10px !important;
+}
+/* add a hover effect */
+.mejs-button [role="menu"] ul li:hover {
+  background-color: #c8c8c8 !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+.mejs-button [role="menu"] ul li input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+}
+.mejs-button [role="menu"] ul li label {
+  cursor: pointer;
+}
+[dir="ltr"] .mejs-button [role="menu"] ul li label { margin-left: 5px }
+[dir="rtl"] .mejs-button [role="menu"] ul li label { margin-right: 5px }
+
+
+.mejs-button [role="menu"] label.mejs-selected {
+  color: #21f8f8 !important;
+}
+
+/* stylelint-enable property-blacklist, declaration-property-value-blacklist */
+</style><script charset="utf-8" src="./Assignment 1b_ File System Implementation_files/744-c-fba0c1e948.js.download"></script></head>
+
+<body class="with-left-side course-menu-expanded with-right-side assignments primary-nav-expanded full-width context-course_154590 webkit chrome no-touch" data-gr-c-s-loaded="true">
+
+<noscript>
+  <div role="alert" class="ic-flash-static ic-flash-error">
+    <div class="ic-flash__icon" aria-hidden="true">
+      <i class="icon-warning"></i>
+    </div>
+    <h1>You need to have JavaScript enabled in order to access this site.</h1>
+  </div>
+</noscript>
+
+
+
+
+<ul id="flash_message_holder"></ul>
+<div id="flash_screenreader_holder" role="alert" aria-live="assertive" aria-relevant="additions" class="screenreader-only" aria-atomic="false"></div>
+
+<div id="application" class="ic-app">
+  
+
+
+    <header id="mobile-header" class="no-print">
+      <button type="button" class="Button Button--icon-action-rev Button--large  mobile-header-hamburger">
+        <i class="icon-solid icon-hamburger"></i>
+        <span id="mobileHeaderInboxUnreadBadge" class="menu-item__badge" style="min-width: 0; top: 12px; height: 12px; right: 6px; display:none;"></span>
+        <span class="screenreader-only">Dashboard</span>
+      </button>
+        <a class="mobile-header-title expandable" href="https://q.utoronto.ca/courses/154590" role="button" aria-controls="mobileContextNavContainer">
+          <span>CSC369H1 Y LEC5101</span>
+          <i style="padding-left: 15px;" id="mobileHeaderArrowIcon" class="icon-arrow-open-down"></i>
+        </a>
+    </header>
+    <nav id="mobileContextNavContainer"></nav>
+  <header id="header" class="ic-app-header no-print ">
+    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#content" id="skip_navigation_link">Skip To Content</a>
+      <div role="region" class="ic-app-header__main-navigation" aria-label="Global Navigation">
+        <div class="ic-app-header__logomark-container">
+          <a href="https://q.utoronto.ca/" class="ic-app-header__logomark">
+            <span class="screenreader-only">Dashboard</span>
+          </a>
+        </div>
+        <ul id="menu" class="ic-app-header__menu-list">
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <a id="global_nav_profile_link" role="button" href="https://q.utoronto.ca/profile" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container">
+                  <div aria-hidden="true" class="fs-exclude ic-avatar ">
+                    <img src="./Assignment 1b_ File System Implementation_files/avatar-50.png" alt="Yexiong Xu">
+                  </div>
+                  <span class="menu-item__badge"></span>
+                </div>
+                <div class="menu-item__text">
+                  Account
+                </div>
+              </a>
+            </li>
+          <li class="ic-app-header__menu-list-item ">
+            <a id="global_nav_dashboard_link" href="https://q.utoronto.ca/" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--dashboard" version="1.1" x="0" y="0" viewBox="0 0 280 200" enable-background="new 0 0 280 200" xml:space="preserve"><path d="M273.09,180.75H197.47V164.47h62.62A122.16,122.16,0,1,0,17.85,142a124,124,0,0,0,2,22.51H90.18v16.29H6.89l-1.5-6.22A138.51,138.51,0,0,1,1.57,142C1.57,65.64,63.67,3.53,140,3.53S278.43,65.64,278.43,142a137.67,137.67,0,0,1-3.84,32.57ZM66.49,87.63,50.24,71.38,61.75,59.86,78,76.12Zm147,0L202,76.12l16.25-16.25,11.51,11.51ZM131.85,53.82v-23h16.29v23Zm15.63,142.3a31.71,31.71,0,0,1-28-16.81c-6.4-12.08-15.73-72.29-17.54-84.25a8.15,8.15,0,0,1,13.58-7.2c8.88,8.21,53.48,49.72,59.88,61.81a31.61,31.61,0,0,1-27.9,46.45ZM121.81,116.2c4.17,24.56,9.23,50.21,12,55.49A15.35,15.35,0,1,0,161,157.3C158.18,152,139.79,133.44,121.81,116.2Z"></path></svg>
+
+              </div>
+              <div class="menu-item__text">Dashboard</div>
+            </a>
+          </li>
+            <li class="menu-item ic-app-header__menu-list-item ic-app-header__menu-list-item--active">
+              <a id="global_nav_courses_link" role="button" href="https://q.utoronto.ca/courses" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M73.31,198c-11.93,0-22.22,8-24,18.73a26.67,26.67,0,0,0-.3,3.63v.3a22,22,0,0,0,5.44,14.65,22.47,22.47,0,0,0,17.22,8H200V228.19h-134V213.08H200V198Zm21-105.74h90.64V62H94.3ZM79.19,107.34V46.92H200v60.42Zm7.55,30.21V122.45H192.49v15.11ZM71.65,16.71A22.72,22.72,0,0,0,49,39.36V190.88a41.12,41.12,0,0,1,24.32-8h157V16.71ZM33.88,39.36A37.78,37.78,0,0,1,71.65,1.6H245.36V198H215.15v45.32h22.66V258.4H71.65a37.85,37.85,0,0,1-37.76-37.76Z"></path></svg>
+
+                </div>
+                <div class="menu-item__text">
+                  Courses
+                </div>
+              </a>
+            </li>
+          <li class="menu-item ic-app-header__menu-list-item ">
+            <a id="global_nav_calendar_link" href="https://q.utoronto.ca/calendar" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--calendar" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M197.07,213.38h16.31V197.07H197.07Zm-16.31,16.31V180.76h48.92v48.92Zm-48.92-16.31h16.31V197.07H131.85Zm-16.31,16.31V180.76h48.92v48.92ZM66.62,213.38H82.93V197.07H66.62ZM50.32,229.68V180.76H99.24v48.92Zm146.75-81.53h16.31V131.85H197.07Zm-16.31,16.31V115.54h48.92v48.92Zm-48.92-16.31h16.31V131.85H131.85Zm-16.31,16.31V115.54h48.92v48.92ZM66.62,148.15H82.93V131.85H66.62ZM50.32,164.46V115.54H99.24v48.92ZM34,262.29H246V82.93H34ZM246,66.62V42.16A8.17,8.17,0,0,0,237.84,34H213.38v8.15a8.15,8.15,0,1,1-16.31,0V34H82.93v8.15a8.15,8.15,0,0,1-16.31,0V34H42.16A8.17,8.17,0,0,0,34,42.16V66.62Zm-8.15-48.92a24.49,24.49,0,0,1,24.46,24.46V278.6H17.71V42.16A24.49,24.49,0,0,1,42.16,17.71H66.62V9.55a8.15,8.15,0,0,1,16.31,0v8.15H197.07V9.55a8.15,8.15,0,1,1,16.31,0v8.15Z"></path></svg>
+
+              </div>
+              <div class="menu-item__text">
+                Calendar
+              </div>
+            </a>
+          </li>
+          <li class="menu-item ic-app-header__menu-list-item ">
+            <a id="global_nav_conversations_link" href="https://q.utoronto.ca/conversations" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container">
+                <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--inbox" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M91.72,120.75h96.56V104.65H91.72Zm0,48.28h80.47V152.94H91.72Zm0-96.56h80.47V56.37H91.72Zm160.94,34.88H228.52V10.78h-177v96.56H27.34A24.17,24.17,0,0,0,3.2,131.48V244.14a24.17,24.17,0,0,0,24.14,24.14H252.66a24.17,24.17,0,0,0,24.14-24.14V131.48A24.17,24.17,0,0,0,252.66,107.34Zm0,16.09a8.06,8.06,0,0,1,8,8v51.77l-32.19,19.31V123.44ZM67.58,203.91v-177H212.42v177ZM27.34,123.44H51.48v79.13L19.29,183.26V131.48A8.06,8.06,0,0,1,27.34,123.44ZM252.66,252.19H27.34a8.06,8.06,0,0,1-8-8V202l30,18H230.75l30-18v42.12A8.06,8.06,0,0,1,252.66,252.19Z"></path></svg>
+</span>
+                <span class="menu-item__badge"></span>
+              </div>
+              <div class="menu-item__text">
+                Inbox
+              </div>
+            </a>
+          </li>
+            
+
+    <li id="context_external_tool_2015_menu_item" class="globalNavExternalTool menu-item ic-app-header__menu-list-item">
+      <a class="ic-app-header__menu-list-link" href="https://q.utoronto.ca/accounts/1/external_tools/2015?launch_type=global_navigation">
+          <img src="./Assignment 1b_ File System Implementation_files/Course_Evals.svg" alt="">
+        <div class="menu-item__text">
+          Course Evals
+        </div>
+      </a>
+    </li>
+
+          <li class="ic-app-header__menu-list-item">
+           <a id="global_nav_help_link" role="button" class="ic-app-header__menu-list-link" data-track-category="help system" data-track-label="help button" href="http://help.instructure.com/">
+              <div class="menu-item-icon-container" role="presentation">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg menu-item__icon svg-icon-help" version="1.1" x="0" y="0" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve" fill="currentColor"><path d="M100,127.88A11.15,11.15,0,1,0,111.16,139,11.16,11.16,0,0,0,100,127.88Zm8.82-88.08a33.19,33.19,0,0,1,23.5,23.5,33.54,33.54,0,0,1-24,41.23,3.4,3.4,0,0,0-2.74,3.15v9.06H94.42v-9.06a14.57,14.57,0,0,1,11.13-14,22.43,22.43,0,0,0,13.66-10.27,22.73,22.73,0,0,0,2.31-17.37A21.92,21.92,0,0,0,106,50.59a22.67,22.67,0,0,0-19.68,3.88,22.18,22.18,0,0,0-8.65,17.64H66.54a33.25,33.25,0,0,1,13-26.47A33.72,33.72,0,0,1,108.82,39.8ZM100,5.2A94.8,94.8,0,1,0,194.8,100,94.91,94.91,0,0,0,100,5.2m0,178.45A83.65,83.65,0,1,1,183.65,100,83.73,83.73,0,0,1,100,183.65" transform="translate(-5.2 -5.2)"></path></svg>
+
+              </div>
+              <div class="menu-item__text">
+                Help
+              </div>
+</a>          </li>
+        </ul>
+      </div>
+      <div class="ic-app-header__secondary-navigation">
+        <ul class="ic-app-header__menu-list">
+          <li class="menu-item ic-app-header__menu-list-item">
+            <button id="primaryNavToggle" class="ic-app-header__menu-list-link ic-app-header__menu-list-link--nav-toggle" aria-label="Minimize global navigation" title="Minimize global navigation">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--navtoggle" version="1.1" x="0" y="0" width="40" height="32" viewBox="0 0 40 32" xml:space="preserve">
+  <path d="M39.5,30.28V2.48H37.18v27.8Zm-4.93-13.9L22.17,4,20.53,5.61l9.61,9.61H.5v2.31H30.14l-9.61,9.61,1.64,1.64Z"></path>
+</svg>
+
+              </div>
+            </button>
+          </li>
+        </ul>
+      </div>
+    <div id="global_nav_tray_container"></div>
+    <div id="global_nav_tour"></div>
+  </header>
+
+
+  <div id="instructure_ajax_error_box">
+    <div style="text-align: right; background-color: #fff;"><a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="close_instructure_ajax_error_box_link">Close</a></div>
+    <iframe id="instructure_ajax_error_result" src="./Assignment 1b_ File System Implementation_files/saved_resource.html" style="border: 0;" title="Error" __idm_frm__="3319"></iframe>
+  </div>
+
+  <div id="wrapper" class="ic-Layout-wrapper">
+      <div class="ic-app-nav-toggle-and-crumbs no-print">
+          <button type="button" id="courseMenuToggle" class="Button Button--link ic-app-course-nav-toggle" aria-live="polite" aria-label="Hide Courses Navigation Menu" title="Hide Courses Navigation Menu">
+            <i class="icon-hamburger" aria-hidden="true"></i>
+          </button>
+          <div class="ic-app-crumbs">
+        <nav id="breadcrumbs" role="navigation" aria-label="breadcrumbs"><ul><li class="home"><a href="https://q.utoronto.ca/"><span class="ellipsible">      <i class="icon-home" title="My Dashboard">
+        <span class="screenreader-only">My Dashboard</span>
+      </i>
+</span></a></li><li><a href="https://q.utoronto.ca/courses/154590"><span class="ellipsible">CSC369H1 Y LEC5101</span></a></li><li><a href="https://q.utoronto.ca/courses/154590/assignments"><span class="ellipsible">Assignments</span></a></li><li><a href="https://q.utoronto.ca/courses/154590/assignments/349729"><span class="ellipsible">Assignment 1b: File System Implementation</span></a></li></ul></nav>
+        </div>
+          <div class="TutorialToggleHolder"></div>
+      </div>
+    <div id="main" class="ic-Layout-columns">
+        <div class="ic-Layout-watermark"></div>
+        <div id="left-side" class="ic-app-course-menu list-view" style="display: block">
+              <span id="section-tabs-header-subtitle" class="ellipsis">2020 Summer</span>
+            <nav role="navigation" aria-label="Courses Navigation Menu"><ul id="section-tabs"><li class="section"><a href="https://q.utoronto.ca/courses/154590/announcements" title="Announcements" class="announcements" tabindex="0">Announcements</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590" title="Home" class="home" tabindex="0">Home</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/assignments/syllabus" title="Syllabus" class="syllabus" tabindex="0">Syllabus</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/grades" title="Grades" class="grades" tabindex="0">Grades</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/modules" title="Modules" class="modules" tabindex="0">Modules</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/external_tools/2181" title="Library Resources" class="context_external_tool_2181" tabindex="0">Library Resources</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/external_tools/246" title="Bb Collaborate" class="context_external_tool_246" tabindex="0">Bb Collaborate</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/quizzes" title="Quizzes" class="quizzes" tabindex="0">Quizzes</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/assignments" title="Assignments" aria-current="page" class="assignments active" tabindex="0">Assignments</a></li><li class="section"><a href="https://q.utoronto.ca/courses/154590/files" title="Files" class="files" tabindex="0">Files</a></li></ul></nav>
+        </div>
+      <div id="not_right_side" class="ic-app-main-content">
+        <div id="content-wrapper" class="ic-Layout-contentWrapper">
+          
+          <div id="content" class="ic-Layout-contentMain" role="main">
+            
+<style>
+  #right-side-wrapper {
+    height: 100%;
+  }
+</style>
+
+
+
+<div id="assignment_show" class="assignment content_underline_links">
+    <!--Student View-->
+    <div class="assignment-title">
+      <div class="title-content">
+        <h1 class="title">
+          Assignment 1b: File System Implementation
+        </h1>
+      </div>
+      <div class="assignment-buttons">
+        
+
+        
+      </div>
+    </div>
+    
+<ul class="student-assignment-overview">
+  <li>
+    <span class="title">Due</span>
+    <span class="value">
+          <span class="date_text">
+                <span class="display_date">Jun 30</span> by 
+                <span class="display_time">11:59pm</span>
+          </span>
+        </span>
+  </li>
+  <li>
+    <span class="title">Points</span>
+    <span class="value">10</span>
+  </li>
+  
+  <li>
+    <span class="title">Available</span>
+    <span class="value">
+        after May 27 at 12am
+    </span>
+  </li>
+
+  <div class="clear"></div>
+</ul>
+
+  <div class="clear"></div>
+
+
+  <div class="clear"></div>
+
+  <div class="description user_content student-version enhanced"><p><span style="color: #ff0000;">Note: There is a small bug in the starter code that prevents it from compiling. On line 158 of a1fs.c, we can't initialize st-&gt;mtim to 0 because it is the wrong type. &nbsp;You can replace this line with the following until you add the actual value.</span></p>
+<pre>st-&gt;st_mtim = (struct timespec){0};</pre>
+<h2>Introduction</h2>
+<p>You will want to get started working on your file system implementation even before you get feedback on your proposal. We will be using FUSE to interact with your file system. FUSE allows you to implement a file system in user space by implementing the callback functions that the <code>libfuse</code> library will call. The diagram below shows how the FUSE kernel module receives file system calls in the kernel and passes them to your file system program. (In our case, "hello" will be replaced by "a1fs".)</p>
+<p><img src="./Assignment 1b_ File System Implementation_files/diagram.png" alt="When a user runs &quot;ls -l /tmp/mnt&quot;, the ls program will make some system calls. These system calls will call the appropriate handler functions in VFS. The VFS code knows that the file system mounted at /tmp/mnt is a FUSE file system, so it calls the FUSE handlers. The FUSE handler will call the callback functions that you implemented in a1fs." width="1024" height="768" data-api-endpoint="https://q.utoronto.ca/api/v1/courses/131103/files/5799546" data-api-returntype="File" style="max-width: 907px;"></p>
+<p>This diagram shows the layers involved in using your file system code with FUSE. In the top right it shows that a1fs has been executed to mount your file system at <code>/tmp/mnt</code>. Now when you run <code>ls -l /tmp/mnt</code> the <code>ls</code> program will execute the system calls to list the contents of the directory. These system calls are executed in the kernel which recognizes that they need to be handled by the FUSE file system. FUSE executed the callbacks that you wrote in <code>a1fs</code>. For <code>ls</code>, this will include <code>a1fs_getattr()</code> and <code>a1fs_readdir()</code></p>
+<h3>Using FUSE</h3>
+<p>The tutorial notes will include information on getting started with FUSE, and check Piazza for tips. There are two recommended ways to work on this assignment.</p>
+<h4>A. Using a VM on your own machine</h4>
+<p>You can run FUSE using an Ubuntu virtual machine. Here are our recommendations for the setup:</p>
+<ul>
+<li>
+<a href="https://www.virtualbox.org/" class="external" target="_blank" rel="noreferrer noopener"><span>VirtualBox</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a> is a free open-source hypervisor that allows you to run a guest OS on top of your machine. It is pretty easy to install.</li>
+<li>Now install Ubuntu 18.04 as a VM in VirtualBox. I used an image from <a href="https://www.osboxes.org/ubuntu/" class="external" target="_blank" rel="noreferrer noopener"><span>osboxes.org</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a>, but you may find others. You can find <a href="https://www.wikihow.com/Install-Ubuntu-on-VirtualBox" class="external" target="_blank" rel="noreferrer noopener"><span>tutorials</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a> that explain the process.</li>
+<li>Make sure your FUSE version is 2.9.* (run <code>fusermount --version</code>).</li>
+<li>Install additional packages:
+<ul>
+<li><code>sudo apt-get install libfuse-dev pkg-config</code></li>
+</ul>
+</li>
+<li>To attach <code>gdb</code> to a running process you will need to change a security setting on Linux. You can do that using the following commands:
+<ul>
+<li><code>sudo bash</code></li>
+<li><code>echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</code></li>
+</ul>
+</li>
+<li>You may want to increase the screen resolution for the VM. You can do this by selecting the "Show Applications" button in the bottom left corner and then going to Settings-&gt;Devices-&gt;Displays and changing the resolution.</li>
+</ul>
+<h4>B. Using the teach.cs machines</h4>
+<p>You can also use FUSE on the teach.cs machines, but you need to be sitting in front of a workstation rather than logged in over the network.</p>
+<p>You will need to mount your FUSE file system in a sub-directory of <code>/tmp</code> (e.g. <code>./a1fs img /tmp/mnt</code>) because FUSE needs full permissions on the path to the mount point.</p>
+<p>To use <code>gdb</code>, you must start <code>a1fs</code> under <code>gdb</code>. You won't be able to attach <code>gdb</code> to a running <code>a1fs</code> process.</p>
+<h3>Running the programs</h3>
+<p>To create a disk image you will run the following commands:</p>
+<pre>truncate -s &lt;size&gt; &lt;image file&gt;<br>./mkfs.a1fs -i &lt;number of inodes&gt; &lt;image file&gt;
+</pre>
+<p><code>truncate</code> will create the image file if it doesn't exist and will set its size. <code>mkfs.a1fs</code> will format it into your a1fs file system.</p>
+<p>The next step is to mount your file system. You will need to choose a location in the system's file tree to "graft" your files.</p>
+<pre>./a1fs &lt;image file&gt; &lt;mount point&gt;
+</pre>
+<p>The image file is the disk image formatted by <code>mkfs.a1fs</code>. Not only does <code>a1fs</code> mount the disk image into the local file system, but it also sets up callbacks and then calls <code>fuse_main()</code> so that FUSE can do its work. Both <code>a1fs</code> and <code>mkfs.a1fs</code> have additional options - run them with <code>-h</code> to see their descriptions.</p>
+<p>After the file system is mounted, you can access it using standard tools. To unmount the file system, run:</p>
+<pre>fusermount -u &lt;mount point&gt;
+</pre>
+<p>Note that you should be able to unmount the file system after any sequence of operations, such that when it is mounted again, it has the same contents.</p>
+<h3>Understanding the code</h3>
+<p>First read through all of the starter code to understand how it fits together, and which files contain helper functions that will be useful in your implementation.</p>
+<ul>
+<li>
+<code>mkfs.c</code> - contains the program to format your disk image. You need to write part of this program.</li>
+<li>
+<code>a1fs.h</code> - contains the data structure definitions and constants needed for the file system. You wrote this for your proposal, but you may find you need to make changes as you work on the implementation. Also, we've added some useful documentation comments since the a1a version of this file, so please make sure to use the updated version.</li>
+<li>
+<code>a1fs.c</code> - contains the program used to mount your file system. This includes the callback functions that will implement the underlying file system operations. Each function that you will implement is preceded by detailed comments and has a "TODO" in it. Please read this file carefully.</li>
+</ul>
+<p style="padding-left: 40px;"><strong>NOTE:</strong> It is very important to return the correct error codes (or 0 on success) from all the FUSE callback functions, according to the "Errors" section in the comment above the function. The FUSE library, the kernel, and the user-space tools used to access the file system all rely on these return codes for correctness of operation.</p>
+<p style="padding-left: 40px;">Note: You will see many lines like <code>(void)fs;</code>. Their purpose is to prevent the compiler from warning about unused variables. You should delete these lines as you make use of the variables.</p>
+<ul>
+<li>
+<code>fs_ctx.h</code> and <code>fs_ctx.c</code> - The <code>fs_ctx</code> struct contains runtime state of your mounted file system. Any time you think you need a global variable, it should go in this struct instead.</li>
+<li>
+<code>map.h</code> and <code>map.c</code> - contain the <code>map_file()</code> function used by <code>a1fs</code> and <code>mkfs.a1fs</code> to map the image file into memory and determine its size.</li>
+<li>
+<code>options.h</code> and <code>options.c</code> - contain the code to parse command line arguments for the <code>a1fs</code> program.</li>
+<li>
+<code>util.h</code> - contains some handy functions.</li>
+</ul>
+<p>You are welcome to put some of the helper functions in separate files instead of keeping everything in <code>a1fs.c</code>. Make sure to update the <code>Makefile</code> to compile those files and add/commit/push them to your git repository.</p>
+<h3>Recommended progression of your work</h3>
+<p>You should tackle this project in stages so that you can be confident that each piece works before moving on to the next step.</p>
+<p>Step 1: Write enough of <code>mkfs.a1fs</code> so that you can mount the file system and see the root directory.</p>
+<p>Step 2: Write <code>a1fs_getattr()</code> and <code>a1fs_readdir()</code> so that you can run <code>ls</code>on the root directory.</p>
+<p>Step 3: Implement the code to create and traverse directories where the number of directory entries is small enough to fit in one data block. You should be able to use <code>ls</code>, <code>stat</code>, and <code>mkdir</code> at this point.</p>
+<p>Step 4: Add the ability to create files where the data is stored in a single data block.</p>
+<p>Step 5: Now expand your implementations so that files and directories fit in one extent of 2 or more blocks.</p>
+<p>Step 6: Add the ability to remove files and directories.</p>
+<p>Step 7: Expand your implementation to support multiple extents.</p>
+<p><strong>Tip</strong>: Comment your code well. It will help you keep track of what is implemented and your understanding of how things work.</p>
+<h3>Testing and debugging recommendations</h3>
+<p>You can use standard Unix tools (that you have learned in CSC209) to manipulate directories and files in a mounted a1fs image in order to test your implementation. System call tracing with <code>strace</code> can help understand what syscalls they invoke to access the file system. Use can, in general, use the behaviour of the host file system (ext4) as a reference - your a1fs should have the same observable behaviour for operations that a1fs needs to support. You can also write your own C programs that invoke relevant syscalls directly. As a part of your submission, you will write a shell script that exercises the functionality of your file system.</p>
+<p>You will find it useful to run <code>a1fs</code> under <code>gdb</code>:</p>
+<pre>gdb --args ./a1fs &lt;image file&gt; &lt;mount point&gt; -d
+</pre>
+<p>You can set breakpoints at the start of your FUSE callback functions to help understand what callbacks are invoked when you execute a file system operation (e.g. <code>mkdir</code>), in what order, and with what arguments. The debugger is also helpful in investigating crashes (e.g. segfaults). Please refer to <code>gdb</code> documentation for instructions on how to use it.</p>
+<p>You might also find it useful to view the binary contents of your a1fs image files using <code>xxd</code>. See <code>man 1 xxd</code> for documentation.</p>
+<h3>Limits and details</h3>
+<ul>
+<li>The maximum number of inodes in the system is a parameter to <code>mkfs.a1fs</code>, the image size is also known to it, and the block size is <code>A1FS_BLOCK_SIZE</code> (4096 bytes). Many parameters of your file system can be computed from these three values.</li>
+<li>Your file system does not have to support more then 512 extents in a file.</li>
+<li>We will not test your code on an image smaller than 64 KiB (16 blocks) with 4 inodes. You should be able to fit the root directory and a non-empty file in an image of this size and configuration. You shouldn't pre-allocate additional space for metadata (beyond what's necessary to store the inodes and the information about free and available blocks and inodes) in your <code>mkfs.a1fs</code> implementation.</li>
+<li>The maximum path component length is <code>A1FS_NAME_MAX</code> (252 bytes including the null terminator). This value is chosen to fit the directory entry structure into 256 bytes (see <code>a1fs.h</code>). Names stored in directory entries are null-terminated string so that you can use standard C string functions on them.</li>
+<li>The maximum full path length is <code>PATH_MAX</code> (4096 bytes including the null terminator). This allows you to use fixed-size buffers for operations like splitting a path into a directory name and a file name.</li>
+<li>There are no limits on the number of directory entries (except as dictated by the number of extents per file).</li>
+<li>There are no limits on the number of blocks in your file system (except for what can be addressed with 32-bit block pointers and 4096-byte block size).</li>
+</ul>
+<p>Sample disk configurations that must work include:</p>
+<ul>
+<li>64KiB size and 4 inodes</li>
+<li>64KiB size and 16 inodes</li>
+<li>1MiB size and 128 inodes</li>
+<li>10MiB size and 4096 inodes</li>
+<li>2GiB size and 4096 inodes</li>
+</ul>
+<p>We will not be testing your code under extreme circumstances so don't get carried away by thinking about corner cases. However, we do expect you to properly handle "out of space" conditions in your code.</p>
+<h3>Documentation</h3>
+<p>It is recommended that you include a README.txt file that describes any aspects of your code that does not work well. Code that works well and implements a subset of the functionality will get a higher mark than code that attempts to implement more functionality but doesn't work.</p>
+<p>You will also submit a shell script (bash or sh) called <code>runit.sh</code> that demonstrates some functionality of your system. It should:</p>
+<ul>
+<li>create an image</li>
+<li>format the image</li>
+<li>mount the image</li>
+<li>perform a few operations on the file system such as creating a directory, displaying the contents of a directory, creating a file, adding data to a file (Keep it simple)</li>
+<li>unmount the image</li>
+<li>mount the image again and display some contents of the file system to show that the relevant state was saved to the disk image.</li>
+</ul>
+<p>The purpose of this shell script is to show basic functionality. It is not meant to test corner cases or large files or directories.</p>
+<h3>What to submit</h3>
+<p>Your a1b repository will contain all the files necessary to compile and run <code>mkfs.a1fs</code> and <code>a1fs</code>. It will also include the <code>runit.sh</code> script. It may include a README file as described above. Do NOT add and commit virtual machine images, executables, .o or .d files, or disk image files. You are welcome to commit test code and other text files. You should use a <code>.gitignore</code> file to help ensure you only commit and push files you should.</p>
+<h3>Useful links</h3>
+<p>libfuse GitHub repository: <a href="https://github.com/libfuse/libfuse" class="external" target="_blank" rel="noreferrer noopener"><span>https://github.com/libfuse/libfuse</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a></p>
+<p>FUSE API header file for the version we're using: <a href="https://github.com/libfuse/libfuse/blob/fuse_2_9_bugfix/include/fuse.h" class="external" target="_blank" rel="noreferrer noopener"><span>https://github.com/libfuse/libfuse/blob/fuse_2_9_bugfix/include/fuse.h</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a></p>
+<p>FUSE wiki: <a href="https://github.com/libfuse/libfuse/wiki" class="external" target="_blank" rel="noreferrer noopener"><span>https://github.com/libfuse/libfuse/wiki</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a></p></div>
+
+
+  <div style="display: none;">
+    <span class="timestamp">1593575999</span>
+    <span class="due_date_string">06/30/2020</span>
+    <span class="due_time_string">11:59pm</span>
+  </div>
+</div>
+
+
+
+
+
+
+  <div id="rubrics" style="margin-bottom: 10px;">
+    <div style="display: none;" id="rubric_parameters">
+      <input type="hidden" name="rubric_association[association_type]" value="Assignment">
+      <input type="hidden" name="rubric_association[association_id]" value="349729">
+      <input type="hidden" name="rubric_association[purpose]" value="grading">
+    </div>
+    
+<div id="rubric_long_description_dialog" style="display: none;">
+  <div class="editing">
+    <form id="edit_criterion_form" class="no-margin-bottom">
+      <div>
+        <label class="rating_form_label">Description
+          <textarea class="description" rows="1" name="description"></textarea>
+        </label>
+      </div>
+      <div>
+        <label class="rating_form_label">Long Description
+          <textarea class="long_description" rows="4" name="long_description"></textarea>
+        </label>
+      </div>
+      <div class="button-container">
+        <button type="button" class="btn btn button-secondary cancel_button">Cancel</button>
+        <button type="button" class="btn save_button btn-primary">Update Criterion</button>
+      </div>
+    </form>
+  </div>
+  <div class="displaying">
+    <div class="long_description">
+    </div>
+  </div>
+</div>
+<div id="rubric_criterion_comments_dialog" style="display: none;">
+  <div class="criterion_description" style="border-bottom: 1px solid #ccc; padding: 5px 0; font-size: 1.2em; font-weight: bold; margin-bottom: 5px;" tabindex="-1"></div>
+  <div class="editing">
+    <label for="criterion_comments_textarea">
+      Additional Comments:
+    </label>
+    <textarea id="criterion_comments_textarea" class="criterion_comments" name="criterion_comments" style="width: 370px;"></textarea>
+    <div class="button-container">
+      <button type="button" class="btn btn button-secondary cancel_button">Cancel</button>
+      <button type="button" class="btn save_button">Update Comments</button>
+    </div>
+  </div>
+  <div class="displaying">
+    Additional Comments:
+    <div class="criterion_comments" style="margin-top: 10px;">
+    </div>
+  </div>
+</div>
+<div id="rubric_rating_dialog" style="display: none;">
+  <div class="description" style="border-bottom: 1px solid #ccc; padding: 5px 0; font-size: 1.2em; font-weight: bold; margin-bottom: 5px;">
+    <span id="edit_rating_form_criterion_description"></span>
+  </div>
+  <div class="editing">
+    <form id="edit_rating_form" class="no-margin-bottom">
+      <div class="toggle_for_hide_points">
+        <div><label id="rating_form_score_label" class="rating_form_label">Rating Score</label></div>
+        <span id="rating_form_max_score_label" hidden="">Rating max score</span>
+        <input id="points" aria-labelledby="rating_form_score_label" type="text" size="2" name="points" class="no-margin-bottom span1">
+        <span class="range_rating">to &gt;
+          <input aria-label="Rating min score" type="text" size="2" name="min_points" class="no-margin-bottom span1 min_points" placeholder="min">
+        </span>pts
+      </div>
+      <div>
+        <label for="rating_form_title" class="rating_form_label">Rating Title</label>
+        <input id="rating_form_title" type="text" class="rating_description" style="width: 90%;" name="description">
+      </div>
+      <div>
+        <label for="rating_form_description" class="rating_form_label">Rating Description</label>
+        <textarea id="rating_form_description" rows="4" style="width: 90%;" class="rating_long_description" name="rating_long_description" form="edit_rating_form"></textarea>
+      </div>
+      <div class="button-container">
+        <button type="button" class="btn button-secondary cancel_button">Cancel</button>
+        <button type="button" class="btn btn-primary save_button ok_button">Update Rating</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  </div>
+  
+<div class="rubric_container rubric  " id="default_rubric" style="display: none;">
+  <div class="screenreader-only"><h2>Rubric</h2></div>
+  <div class="rubric_title">
+    <div style="display: none;" class="links displaying pull-right">
+      <a href="https://q.utoronto.ca/courses/154590/rubrics/%7B%7B%20id%20%7D%7D" class=" edit_rubric_link no-print no-hover" style="" title="Edit Rubric" aria-label="Edit Rubric" role="button"><i class="icon-edit standalone-icon"></i></a>
+      <a href="https://q.utoronto.ca/search/rubrics?q=" class="find_rubric_link no-print no-hover" style="" title="Find Another Rubric" aria-label="Find Another Rubric" role="button"><i class="icon-search standalone-icon"></i></a>
+        <a href="https://q.utoronto.ca/courses/154590/rubric_associations/%7B%7B%20rubric_association_id%20%7D%7D" class="delete_rubric_link no-print no-hover" style="" title="Delete Rubric" aria-label="Delete Rubric" role="button"><i class="icon-trash standalone-icon"></i></a>
+      <div style="display: none;">
+        <div class="use_for_grading">&nbsp;</div>
+        <div class="free_form_criterion_comments">&nbsp;</div>
+        <div class="hide_score_total">&nbsp;</div>
+        <div class="hide_outcome_results">&nbsp;</div>
+        <div class="hide_points">&nbsp;</div>
+        <div class="rubric_association_id">&nbsp;</div>
+          <div class="user_id">&nbsp;</div>
+        <div class="assessment_type"></div>
+        <a href="https://q.utoronto.ca/courses/154590/rubric_associations/%7B%7B%20rubric_association_id%20%7D%7D/assessments/%7B%7B%20assessment_id%20%7D%7D" rel="nofollow" class="edit_assessment_link">&nbsp;</a>
+        <a href="https://q.utoronto.ca/courses/154590/rubrics/%7B%7B%20rubric_id%20%7D%7D" class="edit_rubric_url">&nbsp;</a>
+          <a href="https://q.utoronto.ca/courses/154590/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url">&nbsp;</a>
+      </div>
+    </div>
+    <div style="float: right; font-size: 0.8em; display: none;" class="links displaying locked">
+      <span style="">Can't change a rubric once you've started using it.</span>
+        <a href="https://q.utoronto.ca/courses/154590/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url" style="display: none;">&nbsp;</a>
+    </div>
+
+    <div class="editing" style="float: right;">
+      <a href="https://q.utoronto.ca/search/rubrics?q=" class="find_rubric_link icon-search" style="" title="Find Existing Rubric">Find a Rubric</a>
+    </div>
+    <div class="editing" style="text-align: left">
+      <label for="rubric-title">Title:</label>
+      <input id="rubric-title" type="text" class="no-margin-bottom" name="title" value="Some Rubric" style="width: 200px;" maxlength="255" aria-label="Title:">
+      <a href="https://q.utoronto.ca/search/rubrics?q=" style="display: none;"><img alt="" src="./Assignment 1b_ File System Implementation_files/find-6164443e2a.png"> Find Rubric</a>
+    </div>
+    <div class="displaying">
+      <span class="title" tabindex="-1">Title</span>
+    </div>
+    <div class="has-assessments-warning" style="display: none;">
+      You've already rated students with this rubric. Any major changes could affect their assessment results.
+    </div>
+  </div>
+<table class="rubric_table">
+<caption>
+  <div class="screenreader-only">
+    <span class="title">Title</span>
+  </div>
+</caption>
+<thead>
+  <tr>
+    <th scope="col">Criteria</th>
+    <th scope="col">Ratings</th>
+    <th scope="col" class="toggle_for_hide_points ">
+      Pts
+    </th>
+  </tr>
+</thead>
+<tbody>
+  
+<tr id="criterion_blank" class="criterion blank" style="display: none;">
+  <td class="criterion_description hover-container pad-box-micro">
+    <div class="container">
+      <div class="links editing">
+          <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="delete_criterion_link"><i class="icon-trash standalone-icon"></i><span class="screenreader-only">Delete criterion row</span></a>
+      </div>
+      <div class="description_content">
+        <span class="outcome_sr_content" aria-hidden="true">
+          <i class="learning_outcome_flag icon-outcomes" aria-hidden="true"></i>
+          <span class="screenreader-only">This criterion is linked to a Learning Outcome</span>
+        </span>
+        <span class="description description_title">Description of criterion</span>
+        <span class="learning_outcome_id" style="display: none;"></span>
+        <span class="criterion_id" style="display: none;"></span>
+          <div class="long_description small_description"></div>
+        <div style="display: none;" class="long_description_holder editing empty">
+          <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="long_description_link hidden">view longer description</a>
+          <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+        </div>
+        <div class="hide_when_learning_outcome ">
+          <div class="criterion_use_range_div editing toggle_for_hide_points ">
+            <label>Range
+              <input type="checkbox" class="criterion_use_range"></label>
+          </div>
+        </div>
+        <div class="threshold toggle_for_hide_points ">
+          threshold:
+          <span class="mastery_points">5</span> pts
+        </div>
+      </div>
+
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_blank" class="rating edge_rating
+                
+                ">
+            <div class="container">
+              <div class="rating-main">
+                  <div class="editing links">
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="delete_rating_link"><i class="icon-trash standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                  </div>
+                  <div class="clear"></div>
+                <span class="nobr toggle_for_hide_points ">
+                  <span class="points">5</span>
+                  <span class="range_rating" style="display: none;">to &gt;<span class="min_points">0</span></span> pts
+                </span>
+                <div class="description rating_description_value">Full Marks</div>
+                <div class="rating_long_description small_description"></div>
+                <span class="rating_id" style="display: none;">blank</span>
+              </div>
+                <div class="editing links add_rating_link">
+                  <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="add_rating_link_after" aria-label="Add rating"><i class="icon-add icon-Solid"></i></a>
+                </div>
+            </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating
+                infinitesimal
+                ">
+            <div class="container">
+              <div class="rating-main">
+                  <div class="editing links">
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="delete_rating_link"><i class="icon-trash standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                  </div>
+                  <div class="clear"></div>
+                <span class="nobr toggle_for_hide_points ">
+                  <span class="points">0</span>
+                  <span class="range_rating" style="display: none;">to &gt;<span class="min_points">0</span></span> pts
+                </span>
+                <div class="description rating_description_value">No Marks</div>
+                <div class="rating_long_description small_description"></div>
+                <span class="rating_id" style="display: none;">blank_2</span>
+              </div>
+            </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form toggle_for_hide_points ">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          
+            <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom">
+           pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="./Assignment 1b_ File System Implementation_files/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+</tr>
+
+  <tr id="criterion_1" class="criterion" style="display: table-row;">
+  <td class="criterion_description hover-container pad-box-micro">
+    <div class="container">
+      <div class="links editing">
+          <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="delete_criterion_link"><i class="icon-trash standalone-icon"></i><span class="screenreader-only">Delete criterion row</span></a>
+      </div>
+      <div class="description_content">
+        <span class="outcome_sr_content" aria-hidden="true">
+          <i class="learning_outcome_flag icon-outcomes" aria-hidden="true"></i>
+          <span class="screenreader-only">This criterion is linked to a Learning Outcome</span>
+        </span>
+        <span class="description description_title">Description of criterion</span>
+        <span class="learning_outcome_id" style="display: none;"></span>
+        <span class="criterion_id" style="display: none;"></span>
+          <div class="long_description small_description"></div>
+        <div style="display: none;" class="long_description_holder editing empty">
+          <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="long_description_link hidden">view longer description</a>
+          <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+        </div>
+        <div class="hide_when_learning_outcome ">
+          <div class="criterion_use_range_div editing toggle_for_hide_points ">
+            <label>Range
+              <input type="checkbox" class="criterion_use_range"></label>
+          </div>
+        </div>
+        <div class="threshold toggle_for_hide_points ">
+          threshold:
+          <span class="mastery_points">5</span> pts
+        </div>
+      </div>
+
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_blank" class="rating edge_rating
+                
+                ">
+            <div class="container">
+              <div class="rating-main">
+                  <div class="editing links">
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="delete_rating_link"><i class="icon-trash standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                  </div>
+                  <div class="clear"></div>
+                <span class="nobr toggle_for_hide_points ">
+                  <span class="points">5</span>
+                  <span class="range_rating" style="display: none;">to &gt;<span class="min_points">0</span></span> pts
+                </span>
+                <div class="description rating_description_value">Full Marks</div>
+                <div class="rating_long_description small_description"></div>
+                <span class="rating_id" style="display: none;">blank</span>
+              </div>
+                <div class="editing links add_rating_link">
+                  <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="add_rating_link_after" aria-label="Add rating"><i class="icon-add icon-Solid"></i></a>
+                </div>
+            </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating
+                infinitesimal
+                ">
+            <div class="container">
+              <div class="rating-main">
+                  <div class="editing links">
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                    <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="delete_rating_link"><i class="icon-trash standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                  </div>
+                  <div class="clear"></div>
+                <span class="nobr toggle_for_hide_points ">
+                  <span class="points">0</span>
+                  <span class="range_rating" style="display: none;">to &gt;<span class="min_points">0</span></span> pts
+                </span>
+                <div class="description rating_description_value">No Marks</div>
+                <div class="rating_long_description small_description"></div>
+                <span class="rating_id" style="display: none;">blank_2</span>
+              </div>
+            </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form toggle_for_hide_points ">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          
+            <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom">
+           pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="https://q.utoronto.ca/courses/154590/assignments/349729#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="./Assignment 1b_ File System Implementation_files/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+</tr><tr class="summary">
+    <td colspan="4">
+      <div class="total_points_holder toggle_for_hide_points " style="float: right; ">
+        <span>Total Points:
+            <span class="rubric_total">
+              5
+            </span>
+ <span class="assessing">out of 5</span>        </span>
+      </div>
+      <div class="editing pull-left">
+        <span id="add_criterion_holder" class="criterion_link"></span>
+      </div>
+      <div class="clear"></div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<table style="display: none;">
+  <tbody><tr id="edit_rubric">
+    <td colspan="4">
+      <form id="edit_rubric_form" class="edit-rubric-form no-margin-bottom">
+        <div class="rubric_custom_ratings" style="">
+          <input type="checkbox" id="rubric_custom_rating" class="rubric_custom_rating">
+          <label for="rubric_custom_rating">I'll write free-form comments when assessing students</label>
+        </div>
+          <div class="hide_points" style="">
+            <input type="checkbox" id="hide_points" class="hide_points_checkbox">
+            <label for="hide_points">Remove points from rubric</label>
+          </div>
+          <div class="hide_outcome_results" style="">
+            <input type="checkbox" id="hide_outcome_results" class="hide_outcome_results_checkbox">
+            <label for="hide_outcome_results">Don't post Outcomes results to Learning Mastery Gradebook</label>
+          </div>
+          <div class="rubric_grading" style="">
+            <input type="checkbox" id="grading_rubric" class="grading_rubric_checkbox">
+            <label for="grading_rubric">Use this rubric for assignment grading</label>
+          </div>
+        <div class="totalling_rubric" style="">
+          <input type="checkbox" id="totalling_rubric" class="totalling_rubric_checkbox">
+          <label for="totalling_rubric">Hide score total for assessment results</label>
+        </div>
+        <div class="ic-Action-header ic-Action-header--half-margin">
+          <div class="ic-Action-header__Primary">
+            <button type="button" class="Button cancel_button">Cancel</button>
+            <button type="submit" class="Button Button--primary save_button">Create Rubric</button>
+          </div>
+        </div>
+      </form>
+    </td>
+  </tr>
+</tbody></table>
+
+
+  <div id="assignment_external_tools"><div></div></div>
+
+  
+
+
+          </div>
+        </div>
+        <div id="right-side-wrapper" class="ic-app-main-content__secondary">
+          <aside id="right-side" role="complementary">
+            
+<div id="sidebar_content">
+
+
+</div>
+
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div style="display:none;"><!-- Everything inside of this should always stay hidden -->
+        <div id="page_view_id">0d1a8beb-6ebc-4321-9257-68be66b523f6</div>
+    </div>
+  <div id="aria_alerts" class="hide-text affix" role="alert" aria-live="assertive"></div>
+  <div id="StudentTray__Container"></div>
+    <div class="NewUserTutorialTray__Container"></div>
+  
+
+  <script>
+    Object.assign(
+      ENV,
+      {}
+    )
+  </script>
+
+
+<script>
+//<![CDATA[
+
+      ;["https://instructure-uploads-yul.s3.ca-central-1.amazonaws.com/account_118340000000000001/attachments/6568016/UT_Custom.js"].forEach(function(src) {
+        var s = document.createElement('script')
+        s.src = src
+        s.async = false
+        document.head.appendChild(s)
+      });
+//]]>
+</script>
+
+</div> <!-- #application -->
+
+
+<div id="nav-tray-portal" style="position: relative; z-index: 99;"></div><div id="weava-permanent-marker" date="1593606693206"></div><div id="weava-ui-wrapper"><div class="weava-drop-area-wrapper"><div class="weava-drop-area"></div>
+<div class="weava-drop-area-text">Drop here!</div></div></div><div class="tinymce-a11y-checker-container"></div></body></html>

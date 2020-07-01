@@ -1,0 +1,13 @@
+#footer .footer-logo {
+ background-color: transparent;
+ background-image: url("https://s3.amazonaws.com/canvas-utprd/UTCrst_340px-01-small.png" );
+ background-repeat: no-repeat;
+ background-position: left top;
+ background-size: auto;
+ width: 185px;
+ height: 72px;
+ margin: 0 10px 0 0;
+}
+#footer #footer-links {
+  display:none;
+}
